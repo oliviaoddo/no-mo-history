@@ -2,11 +2,32 @@
 <html>
 
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="popup.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+  <script src="jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
-  <h1 id="title">no mo history</h1>
+  <div class="row top-bar">
+    <h1 id="title">no mo history</h1>
+    <div class="eye">
+      <i class="fas fa-eye-slash icon fa-2x"></i>
+    </div>
+  </div>
+  <section class="description-section">
+    <div class="row">
+      <p class="description-text">Welcome to no mo history! Add domains here that you want to automatically clear from your browser history.</p>
+      <button class="button" id="add-btn">
+        <i class="fas fa-plus icon"></i>
+      </button>
+  </section>
+  <section class="domain-section">
+    <div class="row center">
+      <button id="save-btn" class="button">Save</button>
+    </div>
+  </section>
   <script src="popup.js"></script>
 </body>
 

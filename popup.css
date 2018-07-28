@@ -1,7 +1,168 @@
 body {
   width: 300px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.center {
+  justify-content: center;
+}
+
+/**********************************/
+/*********** Top Bar **************/
+/**********************************/
+
 #title {
-  color: red;
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+.top-bar {
+  background-color: #292f36;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.row.top-bar {
+  justify-content: space-between;
+}
+
+.eye {
+  margin: 1rem;
+}
+
+.eye:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/**********************************/
+/*********** Sections *************/
+/**********************************/
+
+.domain-section {
+  background-color: #f7f8fa;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.description-section {
+  background-color: #fff;
+  border-bottom: 1px solid #dfe3eb;
+  padding: 1rem;
+}
+
+.description-text {
+  color: #4d5763;
+  font-size: 0.8rem;
+}
+
+/**********************************/
+/*********** Inputs **************/
+/**********************************/
+
+.input-row {
+  border-bottom: 1px solid #dfe3eb;
+  height: 4rem;
+}
+
+input {
+  height: 2rem;
+  border-image: none;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid transparent;
+}
+
+input:focus {
+  outline: 0;
+  border: 2px solid #dfe3eb;
+}
+
+.text-hidden {
+  -webkit-text-security: disc !important;
+}
+
+.label {
+  color: #4d5763;
+  margin: 1rem;
+  font-size: 0.8rem;
+}
+
+/**********************************/
+/*********** Buttons **************/
+/**********************************/
+
+.button {
+  height: 2.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+#save-btn {
+  background: #02aab0; /* fallback for old browsers */
+  width: 100%;
+  background: -webkit-linear-gradient(
+    to right,
+    #00cdac,
+    #02aab0
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #00cdac,
+    #02aab0
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: #fff;
+  border: 1px solid transparent;
+  align-self: center;
+  text-transform: uppercase;
+}
+
+#add-btn {
+  background-color: #02aab0;
+  border: none;
+  margin: 0;
+}
+
+#save-btn:focus,
+#add-btn:focus {
+  outline: 0;
+  background: none;
+  background-color: #017276;
+}
+
+.button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/**********************************/
+/************* Icons **************/
+/**********************************/
+
+.icon {
+  color: #fff;
+}
+
+.trash {
+  width: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.trash > i {
+  color: #292f36;
+}
+
+.trash > i:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
