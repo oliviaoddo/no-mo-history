@@ -32,7 +32,12 @@ $('.eye').click(() => {
 $('#save-btn').click(function() {
   const inputs = $('.input').toArray();
   inputs.forEach(input => {
-    dataSet.add($(input).val());
+    const value = $(input).val();
+    if (isValidDomain(value)) {
+      dataSet.add(value);
+    } else {
+      console.log('not a valid domain');
+    }
   });
   localStorage.setItem('noMoHistory', JSON.stringify([...dataSet.values()]));
 });
@@ -69,4 +74,10 @@ function addDeleteListener(trashId, inputId) {
     const inputValue = $(inputId).val();
     deleteInput(inputValue, inputId);
   });
+}
+
+function isValidDomain(domain) {
+  if (!domain) return false;
+  var re = /^(?!:\/\/)([a-zA-Z0-9-]+\.){0,5}[a-zA-Z0-9-][a-zA-Z0-9-]+\.[a-zA-Z]{2,64}?$/gi;
+  return re.test(domain);
 }
