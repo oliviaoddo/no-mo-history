@@ -1,13 +1,21 @@
 let noMoHistoryData = JSON.parse(localStorage.getItem('noMoHistory')) || [];
+let enabled = JSON.parse(localStorage.getItem('enabled'));
 const domainSection = $('.domain-section');
 let dataSet = new Set(noMoHistoryData);
 let numInputs = 0;
 let hidden = true;
+var port = chrome.extension.connect({
+  name: 'Switch'
+});
 
 if (noMoHistoryData.length) {
   dataSet.forEach(val => {
     createInput(val);
   });
+}
+
+if (enabled === true) {
+  $('#switch').attr('checked', true);
 }
 
 // toggle between eye icons and hidden text input
@@ -29,7 +37,7 @@ $('.eye').click(() => {
   }
 });
 
-$('#save-btn').click(function() {
+$('#save-btn').click(() => {
   const inputs = $('.input').toArray();
   inputs.forEach(input => {
     const value = $(input).val();
@@ -40,10 +48,17 @@ $('#save-btn').click(function() {
     }
   });
   localStorage.setItem('noMoHistory', JSON.stringify([...dataSet.values()]));
+  window.close();
 });
 
-$('#add-btn').click(function() {
+$('#add-btn').click(() => {
   createInput();
+});
+
+$('#switch').change(event => {
+  const message = event.target.checked ? 'ENABLE' : 'DISABLE';
+  port.postMessage(message);
+  localStorage.setItem('enabled', event.target.checked);
 });
 
 function createInput(value = '') {

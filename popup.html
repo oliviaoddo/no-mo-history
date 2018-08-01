@@ -12,16 +12,24 @@
 <body>
   <div class="row top-bar">
     <h1 id="title">no mo history</h1>
-    <div class="eye">
-      <i class="fas fa-eye-slash icon fa-2x"></i>
-    </div>
+    <label class="switch">
+      <input id="switch" type="checkbox">
+      <span class="slider round"></span>
+    </label>
   </div>
-  <section class="description-section">
+  <section class="settings">
     <div class="row">
-      <p class="description-text">Welcome to no mo history! Add domains here that you want to automatically clear from your browser history.</p>
+      <div class="eye">
+        <i class="fas fa-eye-slash icon fa-2x"></i>
+      </div>
       <button class="button" id="add-btn">
         <i class="fas fa-plus icon"></i>
       </button>
+    </div>
+  </section>
+  <section class="description-section">
+    <div class="row">
+      <p class="description-text">Welcome to no mo history! Add domains here that you want to automatically clear from your browser history.</p>
   </section>
   <section class="domain-section">
     <div class="row center">

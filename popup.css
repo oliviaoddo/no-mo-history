@@ -15,6 +15,10 @@ body {
   justify-content: center;
 }
 
+.settings {
+  background-color: #292f36;
+}
+
 /**********************************/
 /*********** Top Bar **************/
 /**********************************/
@@ -166,4 +170,66 @@ input:focus {
 .trash > i:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+/**********************************/
+/************* Switch *************/
+/**********************************/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  margin: 1rem;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ebedf2;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #02aab0;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #02aab0;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
