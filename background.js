@@ -1,8 +1,12 @@
 var enable = true;
-
+const notification = {
+  type: 'basic',
+  iconUrl: 'images/icon.png',
+  title: 'no mo history'
+};
 const historyListener = item => {
   let noMoHistoryData = JSON.parse(localStorage.getItem('noMoHistory')) || [];
-  const domainName = getHostName(item.url);
+  const domainName = getDomainName(item.url);
   if (noMoHistoryData.includes(domainName)) {
     chrome.history.deleteUrl({ url: item.url }, function(res) {
       console.log(res);
@@ -15,10 +19,28 @@ chrome.extension.onConnect.addListener(port => {
     if (message === 'DISABLE') {
       enable = false;
       toggle(enable);
+      const notification = chrome.notifications.create(
+        'enable',
+        {
+          ...notification,
+          message: 'no mo history has been disabled'
+        },
+        notificationId => {}
+      );
+      chrome.notifications.clear('enable', () => {});
     }
     if (message === 'ENABLE') {
       enable = true;
       toggle(enable);
+      const notification = chrome.notifications.create(
+        'disabled',
+        {
+          ...notification,
+          message: 'no mo history has been enabled'
+        },
+        notificationId => {}
+      );
+      chrome.notifications.clear('disabled', () => {});
     }
   });
 });
